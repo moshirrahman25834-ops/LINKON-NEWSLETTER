@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render & Review | The Frame-by-Frame Edge for Animation & VFX Professionals</title>
+    <style>
+        /* --- Design System & Variables --- */
+        :root {
+            --bg-dark: #0f1013;
+            --bg-card: #181a20;
+            --accent: #ff4a5a;
+            --accent-hover: #e03b4a;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #262933;
+            --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 0 60px 0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* --- CTA Signup Box --- */
+        .cta-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 650px;
+            margin: 0 auto 80px auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px 16px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="email"]:focus {
+            border-color: var(--accent);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .microcopy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* --- Features Section --- */
+        .features {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .features-header h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .features-header p {
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3::before {
+            content: "//";
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- About Section --- */
+        .about {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Responsive Mixins --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            .form-group { flex-direction: column; }
+            .grid { grid-template-columns: 1fr; }
+            .cta-container { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Render & <span>Review</span></div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>The Frame-by-Frame Edge for Serious Animation & VFX Professionals</h1>
+            <p>Stop scrolling through generic tech blogs. Get actionable breakdowns of AAA pipeline workflows, industry-shifting trends, production-ready tutorials, and curated high-tier job openings—delivered straight to your inbox.</p>
+            
+            <!-- Signup Box -->
+            <div class="cta-container">
+                <h2>Upgrade Your Creative Pipeline</h2>
+                <form onsubmit="event.preventDefault(); alert('Awesome! Welcome to the studio list.');">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your professional email..." required>
+                        <button type="submit">Join the Studio List</button>
+                    </div>
+                </form>
+                <div class="microcopy">Zero filler. No spam. Just pure production value in your inbox every Tuesday morning.</div>
+            </div>
+        </section>
+
+        <!-- What You'll Get Section -->
+        <section class="features">
+            <div class="features-header">
+                <h2>Why Top Artists and Leads Subscribe</h2>
+                <p>We do the heavy lifting of sorting the signal from the noise.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Production Breakdowns</h3>
+                    <p>Go under the hood of recent cinematic, commercial, and indie projects. We analyze the rigging solutions, lighting setups, and optimization strategies that made them work.</p>
+                </div>
+                <div class="card">
+                    <h3>The Tech Stack Tracker</h3>
+                    <p>From AI integrations and Unreal Engine workflows to the latest updates in Maya, Houdini, and After Effects—stay ahead of the tools reshaping the industry.</p>
+                </div>
+                <div class="card">
+                    <h3>Curated Global Jobs</h3>
+                    <p>Skip the generic job sites. We track down verified, high-quality remote and studio roles for senior artists, technical directors, motion designers, and leads.</p>
+                </div>
+                <div class="card">
+                    <h3>Industry Pulse & Intel</h3>
+                    <p>Stay informed on studio shifting, union updates, market demands, and the core business trends affecting your career and studio scaling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="about-content">
+                <h2>Behind the Frames</h2>
+                <p><strong>Render & Review</strong> was founded by industry veterans who grew tired of the fragmented, hype-driven state of animation media. We realized that while there is plenty of content for beginners, there is a massive gap for mid-to-senior professionals who need deep, technical context.</p>
+                <p>We don't do clickbait, and we don't care about surface-level tech hype. We care about the craft, the artistry, and the business of moving pixels. Whether you’re directing a team at a major studio, freelancing for global brands, or grinding to break into the elite tiers of the industry, this newsletter is built to be your weekly creative and technical briefing.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Render & Review. Built for the animation and VFX community.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
